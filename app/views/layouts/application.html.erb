@@ -42,12 +42,7 @@
 
   </div>
   <div class="mdl-tabs__panel" id="library-map">
-    <ul>
-      <li>Tywin</li>
-      <li>Cersei</li>
-      <li>Jamie</li>
-      <li>Tyrion</li>
-    </ul>
+    <div id="map"></div>
   </div>
 </div>
 
@@ -55,7 +50,7 @@
 
 
 <script src="assets/application.js"></script>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&libraries=places&callback=initMap" async defer></script>
 
 
 <!-- </div> -->

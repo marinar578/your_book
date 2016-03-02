@@ -18,12 +18,7 @@
 @import "bootstrap";
 
 body{
-    // height: 100%;
-    // width: 100%;
     box-shadow:inset -70px 0 200px -30px rgba(0,0,0,.75);
-    // background-image: url("http://i.stack.imgur.com/1Tzky.png");
-    // background-repeat: no-repeat;
-    // background-size: 100% 100%;
 }
 
 header{
@@ -50,18 +45,25 @@ header{
 .bookcard{
     margin-top: 20px;
     margin-left: 5%;
-    // border-top: solid 1px black;
+    width: 70%;
 }
 
 .bookcard img{
     width: 125px;
 }
 
+.bookcard p{
+    font-size: 8pt;
+}
+
 .bookcard div{
     text-align: right;
-    vertical-align: middle;
 }
 
 .bookcard .img{
     width: 25%;
+}
+
+#map {
+    height: 400px;
 }
