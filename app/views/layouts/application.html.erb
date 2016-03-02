@@ -5,14 +5,61 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
 </head>
 <body>
 
-<header>Header</header>
+<header class="mdl-layout__header-row"></header>
 
-<%= yield %>
+<!-- <div class="container"> -->
 
-<footer>Footer</footer>
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#time-periods" class="mdl-tabs__tab is-active">Literary Time Periods</a>
+      <a href="#library-map" class="mdl-tabs__tab">Libraries Near You</a>
+  </div>
+
+  <div class="mdl-tabs__panel is-active" id="time-periods">
+    <div class="lit-buttons">
+
+        <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id='oldEnglish'>Old English</button>
+        <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id='renaissance'>Renaissance</button>
+        <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id='enlightenment'>Enlightenment</button>
+        <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id='romantic'>Romantic</button>
+        <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id='victorian'>Victorian</button>
+        <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id='modernism'>Modern</button>
+        <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id='postmodern'>Post-modern</button>
+
+    </div>
+
+
+    <div class='book-container'>
+        <div class='bookcard mdl-grid'>
+        </div>
+    </div>
+
+  </div>
+  <div class="mdl-tabs__panel" id="library-map">
+    <ul>
+      <li>Tywin</li>
+      <li>Cersei</li>
+      <li>Jamie</li>
+      <li>Tyrion</li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+<script src="assets/application.js"></script>
+
+
+
+<!-- </div> -->
+
 
 </body>
 </html>

@@ -17,6 +17,51 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body{
+    // height: 100%;
+    // width: 100%;
+    box-shadow:inset -70px 0 200px -30px rgba(0,0,0,.75);
+    // background-image: url("http://i.stack.imgur.com/1Tzky.png");
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+}
+
+header{
+}
+
 .container{
-    margin-left: 30%;
+    height: 80%;
+    margin-top: 50px;
+}
+
+.lit-buttons{
+    margin-left: 5%;
+    width: 90%;
+    padding-bottom: 20px;
+}
+
+.lit-buttons .button{
+    font-size: 8pt;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.bookcard{
+    margin-top: 20px;
+    margin-left: 5%;
+    // border-top: solid 1px black;
+}
+
+.bookcard img{
+    width: 125px;
+}
+
+.bookcard div{
+    text-align: right;
+    vertical-align: middle;
+}
+
+.bookcard .img{
+    width: 25%;
 }

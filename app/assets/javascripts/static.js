@@ -13,7 +13,7 @@ console.log("loaded");
         "enlightenment": ["inauthor:benjamin+franklin", "inauthor:denis+diderot", "inauthor:rousseau", "inauthor:thomas+wyatt"],
         "romantic": ["inauthor:mary+shelley", "inauthor:william+wordworth", "inauthor:lord+byron"],
         "victorian": ["inauthor:dickens", "inauthor:bronte", "inauthor:george+meredith", "inauthor:thomas+hardy", "inauthor:oscar+wilde", "inauthor:gustave+flaubert"],
-        "modernism": ["inauthor:ibanez", "inauthor:eliot", "inauthor:doolittle", "inauthor:fitzgerald", "inauthor:william+butler+yeats", "inauthor:hemingway", "inauthor:albert+camus", "inauthor:ezra+pound", "inauthor:faulkner", "inauthor:virginia+woolf"],
+        "modernism": ["inauthor:ibanez", "inauthor:eliot", "inauthor:doolittle", "inauthor:f+scott+fitzgerald", "inauthor:william+butler+yeats", "inauthor:hemingway", "inauthor:albert+camus", "inauthor:ezra+pound", "inauthor:william+faulkner", "inauthor:virginia+woolf"],
         "postmodern": ["inauthor:henry+miller", "inauthor:burroughs", "inauthor:joseph+heller", "inauthor:kurt+vonnegut", "inauthor:thomas+pynchon", "inauthor:margaret+atwood", "inauthor:david+foster+wallace"]    
     };
 
@@ -48,7 +48,7 @@ console.log("loaded");
 
             var dataObj = spliceLit(dataArray[itemId]);
 
-            var image = "https://i.ytimg.com/vi/rg-3a6Hy-yc/maxresdefault.jpg";
+            var image = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/No_shield_available.svg/200px-No_shield_available.svg.png";
             var authors = "unknown"
             var title = dataObj[0].volumeInfo.title
             var link = dataObj[0].volumeInfo.previewLink;
@@ -61,11 +61,13 @@ console.log("loaded");
             };
             
 
-            $('.twelve').prepend("<div class='bookcard'>");
-            $('.twelve').children().first().append('<img src='+image+'>');
-            $('.twelve').children().first().append('<p id="title">'+ title +'</p>');
-            $('.twelve').children().first().append('<p id="authors">'+authors+'</p>');
-            $('.twelve').children().first().append('<p><a href="'+link+'">LINK</a></p>');
+            $('.book-container').prepend("<div class='bookcard mdl-grid'>");
+            $('.book-container').children().first().append('<div  class="img mdl-cell mdl-cell--4-col"></div>');
+            $('.bookcard div:eq(0)').append('<img src='+image+'>');
+            $('.book-container').children().first().append('<div  class="book-info mdl-cell mdl-cell--6-col"></div>');
+            $('.bookcard div:eq(1)').append('<p id="title"><strong>Title:</strong> '+ title +'</p>');
+            $('.bookcard div:eq(1)').children().first().append('<p id="authors"><strong>Authors:</strong> '+authors+'</p>');
+            $('.bookcard div:eq(1)').children().first().append('<p><a href="'+link+'" target="_blank">Book Preview</a></p>');
         })
 
 
