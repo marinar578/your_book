@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City name:</strong>
+  <%= @library_location.city_name %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @library_location.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @library_location.longitude %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @library_location.user %>
+</p>
+
+<%= link_to 'Edit', edit_library_location_path(@library_location) %> |
+<%= link_to 'Back', library_locations_path %>

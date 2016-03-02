@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @volume.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @volume.author %>
+</p>
+
+<p>
+  <strong>Page count:</strong>
+  <%= @volume.page_count %>
+</p>
+
+<p>
+  <strong>Published date:</strong>
+  <%= @volume.published_date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @volume.user %>
+</p>
+
+<%= link_to 'Edit', edit_volume_path(@volume) %> |
+<%= link_to 'Back', volumes_path %>

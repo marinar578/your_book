@@ -1,0 +1,33 @@
+<%= form_for(@library_location) do |f| %>
+  <% if @library_location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@library_location.errors.count, "error") %> prohibited this library_location from being saved:</h2>
+
+      <ul>
+      <% @library_location.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :city_name %><br>
+    <%= f.text_field :city_name %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

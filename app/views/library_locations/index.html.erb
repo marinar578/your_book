@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Library Locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>City name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @library_locations.each do |library_location| %>
+      <tr>
+        <td><%= library_location.city_name %></td>
+        <td><%= library_location.latitude %></td>
+        <td><%= library_location.longitude %></td>
+        <td><%= library_location.user %></td>
+        <td><%= link_to 'Show', library_location %></td>
+        <td><%= link_to 'Edit', edit_library_location_path(library_location) %></td>
+        <td><%= link_to 'Destroy', library_location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Library location', new_library_location_path %>

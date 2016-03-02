@@ -1,0 +1,2 @@
+module LibraryLocationsHelper
+end
