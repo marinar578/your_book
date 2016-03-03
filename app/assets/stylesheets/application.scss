@@ -54,10 +54,11 @@ header{
 
 .bookcard p{
     font-size: 8pt;
+    margin: 0;
 }
 
 .bookcard div{
-    text-align: right;
+    text-align: justify;
 }
 
 .bookcard .img{
@@ -66,4 +67,5 @@ header{
 
 #map {
     height: 400px;
+
 }

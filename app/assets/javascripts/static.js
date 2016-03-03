@@ -63,60 +63,56 @@ console.log("loaded");
         $('.book-container').prepend("<div class='bookcard mdl-grid'>");
         $('.book-container').children().first().append('<div  class="img mdl-cell mdl-cell--4-col"></div>');
         $('.bookcard div:eq(0)').append('<img src='+image+'>');
-        $('.book-container').children().first().append('<div  class="book-info mdl-cell mdl-cell--6-col"></div>');
-        $('.bookcard div:eq(1)').append('<p id="title"><strong>Title:</strong> <u>'+ title +'</u></p>');
+        $('.book-container').children().first().append('<div class="book-info mdl-cell mdl-cell--6-col"></div>');
+        $('.bookcard div:eq(1)').append('<p id="title"><strong>Title:</strong> '+ title +'</p>');
         $('.bookcard div:eq(1)').children().first().append('<p id="authors"><strong>Authors:</strong> '+authors+'</p>');
         $('.bookcard div:eq(1)').children().first().append('<p id="era"><strong>Literary Era:</strong> '+itemId+'</p>');
         $('.bookcard div:eq(1)').children().first().append('<p><a href="'+link+'" target="_blank">Book Preview</a></p>');
     })
 
-
-
-
-
 })();
 
-    // This example requires the Places library. Include the libraries=places
-    // parameter when you first load the API. For example:
-    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+// This example requires the Places library. Include the libraries=places
+// parameter when you first load the API. For example:
+// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-    var map;
-    var infowindow;
+var map;
+var infowindow;
 
-    function initMap() {
-      var local = {lat: 40.740255, lng: -73.990674};
+function initMap() {
+  var local = {lat: 40.740255, lng: -73.990674};
 
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: local,
-        zoom: 15
-      });
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: local,
+    zoom: 15
+  });
 
-      infowindow = new google.maps.InfoWindow();
-      var service = new google.maps.places.PlacesService(map);
-      service.nearbySearch({
-        location: local,
-        radius: 2000,
-        type: ['library']
-      }, callback);
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: local,
+    radius: 2000,
+    type: ['library']
+  }, callback);
+}
+
+function callback(results, status) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
     }
+  }
+}
 
-    function callback(results, status) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-          createMarker(results[i]);
-        }
-      }
-    }
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
 
-    function createMarker(place) {
-      var placeLoc = place.geometry.location;
-      var marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location
-      });
-
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
-        infowindow.open(map, this);
-      });
-    }
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
+}
