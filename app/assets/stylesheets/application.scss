@@ -34,16 +34,21 @@ header{
 // }
 
 .lit-buttons{
-    margin-left: 10%;
-    width: 90%;
+    margin-left: 5%;
+    // width: 80%;
     padding-bottom: 20px;
 }
 
 .lit-buttons .button{
-    font-size: 8pt;
+    width: 150px;
+    font-size: 10pt;
     margin-top: 10px;
     margin-left: 10px;
     text-align: center;
+}
+
+.desc br{
+    display:none;
 }
 
 .bookcard{
