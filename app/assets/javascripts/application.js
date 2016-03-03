@@ -54,63 +54,62 @@ $( document ).ready(function(){
     $('.button').click(function(){
         $('#welcome').hide();
         var itemId = $(this).attr('id');
-        console.log('clicked');
-
-        $.ajax({
-            type: "GET",
-            url: "https://www.googleapis.com/books/v1/volumes?q="+spliceLit(timePeriods[itemId]),
-            success: function(data){
-                if(data){
-                    for(var i=0; i < data.items.length; i++){
-                        dataArray[itemId].push(data.items[i]);
-                    };// for loop
-                }// if
-            }// success
-        })// ajax call
-
-        var dataObj = spliceLit(dataArray[itemId]);
-
-        var image = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/No_shield_available.svg/200px-No_shield_available.svg.png";
-        var authors = "unknown"
-        var title = dataObj[0].volumeInfo.title
-        var link = dataObj[0].volumeInfo.previewLink;
-        var description = "";
         
-        if(dataObj[0].volumeInfo.imageLinks){
-            image = dataObj[0].volumeInfo.imageLinks.thumbnail;
-        };
-        if(dataObj[0].volumeInfo.authors){
-            var authors = dataObj[0].volumeInfo.authors.join(', ');
-        };
-        if(dataObj[0].searchInfo){
-            if(dataObj[0].searchInfo.textSnippet){
-                var descWithoutNewlines = dataObj[0].searchInfo.textSnippet.replace(/(\r\n|\n|\r)/gm,"");
-                description = "<strong>Snippet from book: </strong><br />" + descWithoutNewlines;
-            };
-        };
-        
+        if(timePeriods[itemId].length > 0){
+            $.ajax({
+                type: "GET",
+                url: "https://www.googleapis.com/books/v1/volumes?q="+spliceLit(timePeriods[itemId]),
+                success: function(data){
+                    if(data){
+                        for(var i=0; i < data.items.length; i++){
+                            dataArray[itemId].push(data.items[i]);
+                        };// for loop
 
-        $('.book-container').prepend('<div class="mdcard demo-card-wide mdl-card mdl-shadow--2dp" style="margin-left:20%; margin-bottom: 5%; width:60%;">');
-        $('.book-container').children().first().append('<div class="mdl-card__title" style="font-size: 10pt;"></div>');
-        $('.mdcard div:eq(0)').append('<img src='+image+'>');
-        $('.mdcard div:eq(0)').append('<h2 class="mdl-card__supporting-text"><strong>Title:</strong> '+ title +'<br><br><strong>Authors:</strong> '+ authors +'<br><br><strong>Literary Era:</strong> '+ itemId.capitalize() +'</h2>');
-        $('.book-container').children().first().append('<div class="book-info mdl-cell mdl-cell--6-col" style="width:100%; margin-left:auto; margin-right:auto;"></div>');
-        $('.mdcard div:eq(1)').append('<div class="desc mdl-card__supporting-text" style="font-size:10pt; width:100%;">' + description + '</div>');
-        $('.mdcard div:eq(1)').append('<div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width:100%;" href="'+link+'" target="_blank">Book Preview</a></div>');
-
-        // $('.book-container').prepend("<div class='bookcard mdl-grid'>");
-        // $('.book-container').children().first().append('<div  class="img mdl-cell mdl-cell--4-col"></div>');
-        // $('.bookcard div:eq(0)').append('<img src='+image+'>');
-        // $('.book-container').children().first().append('<div class="book-info mdl-cell mdl-cell--6-col"></div>');
-        // $('.bookcard div:eq(1)').append('<p id="title"><strong>Title:</strong> '+ title +'</p>');
-        // $('.bookcard div:eq(1)').children().first().append('<p id="authors"><strong>Authors:</strong> '+authors+'</p>');
-        // $('.bookcard div:eq(1)').children().first().append('<p id="era"><strong>Literary Era:</strong> '+itemId+'</p>');
-        // $('.bookcard div:eq(1)').children().first().append('<p><a href="'+link+'" target="_blank">Book Preview</a></p>');
-    
+                        testing_data(itemId);
+                    }// if
+                }// success
+            })// ajax call
+        } else {
+            testing_data(itemId);
+        }
 
     })
 
-})();
+
+        function testing_data(itemId){
+            // console.log('TESTING DATA BEING CALLED')
+            var dataObj = spliceLit(dataArray[itemId]);
+
+            var image = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/No_shield_available.svg/200px-No_shield_available.svg.png";
+            var authors = "unknown"
+            var title = dataObj[0].volumeInfo.title
+            var link = dataObj[0].volumeInfo.previewLink;
+            var description = "";
+            
+            if(dataObj[0].volumeInfo.imageLinks){
+                image = dataObj[0].volumeInfo.imageLinks.thumbnail;
+            };
+            if(dataObj[0].volumeInfo.authors){
+                var authors = dataObj[0].volumeInfo.authors.join(', ');
+            };
+            if(dataObj[0].searchInfo){
+                if(dataObj[0].searchInfo.textSnippet){
+                    var snippet = dataObj[0].searchInfo.textSnippet;
+                    description = "<strong>Snippet from book: </strong><br />" + snippet;
+                };
+            };
+            
+
+            $('.book-container').prepend('<div class="mdcard demo-card-wide mdl-card mdl-shadow--2dp" style="margin-left:20%; margin-bottom: 5%; width:60%;">');
+            $('.book-container').children().first().append('<div class="mdl-card__title" style="font-size: 10pt;"></div>');
+            $('.mdcard div:eq(0)').append('<img src='+image+'>');
+            $('.mdcard div:eq(0)').append('<h2 class="mdl-card__supporting-text"><strong>Title:</strong> '+ title +'<br><br><strong>Authors:</strong> '+ authors +'<br><br><strong>Literary Era:</strong> '+ itemId.capitalize() +'</h2>');
+            $('.book-container').children().first().append('<div class="book-info mdl-cell mdl-cell--6-col" style="width:100%; margin-left:auto; margin-right:auto;"></div>');
+            $('.mdcard div:eq(1)').append('<div class="desc mdl-card__supporting-text" style="font-size:10pt; width:100%;">' + description + '</div>');
+            $('.mdcard div:eq(1)').append('<div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width:100%;" href="'+link+'" target="_blank">Book Preview</a></div>');
+        }
+
+});
 
 // This example requires the Places library. Include the libraries=places
 // parameter when you first load the API. For example:
