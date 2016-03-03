@@ -66,7 +66,7 @@ console.log("loaded");
         };
         if(dataObj[0].searchInfo){
             if(dataObj[0].searchInfo.textSnippet){
-                description = dataObj[0].searchInfo.textSnippet;
+                description = "<strong>Snippet from book:</strong><br />" + dataObj[0].searchInfo.textSnippet;
             };
         };
         
