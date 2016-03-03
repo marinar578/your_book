@@ -3,6 +3,10 @@ console.log("loaded");
 
 (function(){
 
+    String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    };
+
     var spliceLit = function(array){
         return array.splice(Math.floor(Math.random()*array.length),1)
     }
@@ -38,7 +42,6 @@ console.log("loaded");
             type: "GET",
             url: "https://www.googleapis.com/books/v1/volumes?q="+spliceLit(timePeriods[itemId]),
             success: function(data){
-                debugger;
                 if(data){
                     for(i=0; i < data.items.length; i++){
                         dataArray[itemId].push(data.items[i]);
@@ -53,6 +56,7 @@ console.log("loaded");
         var authors = "unknown"
         var title = dataObj[0].volumeInfo.title
         var link = dataObj[0].volumeInfo.previewLink;
+        var description = "";
         
         if(dataObj[0].volumeInfo.imageLinks){
             image = dataObj[0].volumeInfo.imageLinks.thumbnail;
@@ -60,15 +64,20 @@ console.log("loaded");
         if(dataObj[0].volumeInfo.authors){
             var authors = dataObj[0].volumeInfo.authors.join(', ');
         };
+        if(dataObj[0].searchInfo){
+            if(dataObj[0].searchInfo.textSnippet){
+                description = dataObj[0].searchInfo.textSnippet;
+            };
+        };
         
 
         $('.book-container').prepend('<div class="mdcard demo-card-wide mdl-card mdl-shadow--2dp" style="margin-left:20%; margin-bottom: 5%; width:60%;">');
         $('.book-container').children().first().append('<div class="mdl-card__title" style="font-size: 10pt;"></div>');
         $('.mdcard div:eq(0)').append('<img src='+image+'>');
-        $('.book-container').children().first().append('<div class="book-info mdl-cell mdl-cell--6-col"></div>');
-        $('.mdcard div:eq(0)').append('<h2 class="mdl-card__supporting-text"><strong>Title:</strong> '+ title +'<br><br><strong>Authors:</strong> '+ authors +'<br><br><strong>Literary Era:</strong> '+itemId+'</h2>');
+        $('.book-container').children().first().append('<div class="book-info mdl-cell mdl-cell--6-col" style="width:100%;"></div>');
+        $('.mdcard div:eq(0)').append('<h2 class="mdl-card__supporting-text"><strong>Title:</strong> '+ title +'<br><br><strong>Authors:</strong> '+ authors +'<br><br><strong>Literary Era:</strong> '+ itemId.capitalize() +'</h2>');
+        $('.mdcard div:eq(1)').append('<div class="mdl-card__supporting-text" style="font-size:9pt;">' + description + '</div>');
         $('.mdcard div:eq(1)').append('<div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="'+link+'" target="_blank">Book Preview</a></div>');
-        
 
         // $('.book-container').prepend("<div class='bookcard mdl-grid'>");
         // $('.book-container').children().first().append('<div  class="img mdl-cell mdl-cell--4-col"></div>');
