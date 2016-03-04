@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>YourBook</title>
+  <title>Era</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<header class="mdl-layout__header-row"></header>
+<header class="mdl-layout__header-row"><h4>Era</h4></header>
 
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
   <div class="mdl-tabs__tab-bar">
@@ -37,19 +37,18 @@
     <div class='book-container'>
     </div>
 
-    <div id="welcome" class="mdcard demo-card-wide mdl-card mdl-shadow--2dp" style="margin-left:20%; width:60%;">
-      <div class="mdl-card__title">
+    <div id="welcome" class="mdcard" style="margin-left:30%; width:60%; margin-top: 3%;">
+<!--       <div class="mdl-card__title" style="text-align:center;">
         <h2 class="mdl-card__title-text">Welcome</h2>
-      </div>
+      </div> -->
       <div class="mdl-card__supporting-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Mauris sagittis pellentesque lacus eleifend lacinia...
+        Click on a time period above for a recommendation of a book from that period.
       </div>
-      <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-          Get Started
+<!--       <div class="mdl-card__actions mdl-card--border">
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://en.wikipedia.org/wiki/English_literature">
+          Find Out More about Time Periods in English Lit
         </a>
-      </div>
+      </div> -->
     </div>
 
   </div>

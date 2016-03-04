@@ -31,12 +31,12 @@ $( document ).ready(function(){
 
     var timePeriods = {
         "oldEnglish": ['Beowulf', 'Sir+Gawain+and+the+Green+Knight', 'inauthor:William+Langland', 'inauthor:Geoffrey+Chaucer', 'inauthor:John+Gower'],
-        "renaissance": ["inauthor:Shakespeare", "inauthor:Edmund+Spencer", "inauthor:John+Milton"],
-        "enlightenment": ["inauthor:benjamin+franklin", "inauthor:denis+diderot", "inauthor:rousseau", "inauthor:thomas+wyatt"],
+        "renaissance": ["inauthor:William+Shakespeare", "inauthor:Edmund+Spencer", "inauthor:John+Milton"],
+        "enlightenment": ["inauthor:benjamin+franklin", "inauthor:denis+diderot", "inauthor: jean-jacques+rousseau", "inauthor:thomas+wyatt"],
         "romantic": ["inauthor:mary+shelley", "inauthor:william+wordsworth", "inauthor:lord+byron"],
-        "victorian": ["inauthor:dickens", "inauthor:bronte", "inauthor:george+meredith", "inauthor:thomas+hardy", "inauthor:oscar+wilde", "inauthor:gustave+flaubert"],
-        "modernism": ["inauthor:ibanez", "inauthor:eliot", "inauthor:doolittle", "inauthor:f+scott+fitzgerald", "inauthor:william+butler+yeats", "inauthor:hemingway", "inauthor:albert+camus", "inauthor:ezra+pound", "inauthor:william+faulkner", "inauthor:virginia+woolf"],
-        "postmodern": ["inauthor:henry+miller", "inauthor:burroughs", "inauthor:joseph+heller", "inauthor:kurt+vonnegut", "inauthor:thomas+pynchon", "inauthor:margaret+atwood", "inauthor:david+foster+wallace"]    
+        "victorian": ["inauthor:charles+dickens", "inauthor:emily+bronte","inauthor:anne+bronte", "inauthor:george+meredith", "inauthor:thomas+hardy", "inauthor:oscar+wilde", "inauthor:gustave+flaubert"],
+        "modernism": ["inauthor:vicente+blasco+ibanez", "inauthor:t.s.+eliot", "inauthor:hilda+doolittle", "inauthor:f+scott+fitzgerald", "inauthor:william+butler+yeats", "inauthor:ernest+hemingway", "inauthor:albert+camus", "inauthor:ezra+pound", "inauthor:william+faulkner", "inauthor:virginia+woolf"],
+        "postmodern": ["inauthor:henry+miller", "inauthor:william+burroughs", "inauthor:joseph+heller", "inauthor:kurt+vonnegut", "inauthor:thomas+pynchon", "inauthor:margaret+atwood", "inauthor:david+foster+wallace"]    
     };
 
 
